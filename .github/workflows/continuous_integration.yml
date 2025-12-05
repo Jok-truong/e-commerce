@@ -27,7 +27,7 @@ jobs:
         run: npm i -g typescript &&  tsc
 
       - name: Checkout lint errors
-        run: npm run eslint
+        run: npm run lint
 
       - name: Launch Unit and Integration test
         run: npm run test
