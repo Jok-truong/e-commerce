@@ -2,14 +2,16 @@ import { clerkClient, clerkMiddleware } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 export default clerkMiddleware(async (auth, req) => {
-  const { isSignedIn } = await (await clerkClient()).authenticateRequest(req);
+  const { isAuthenticated } = await (
+    await clerkClient()
+  ).authenticateRequest(req);
 
   const response = NextResponse.next();
 
   //protect user api
   if (req.nextUrl.pathname.startsWith("/api/user")) {
     //if signedIn is false
-    if (!isSignedIn) {
+    if (!isAuthenticated) {
       return Response.json(
         {
           message: "You are not authentificated",
