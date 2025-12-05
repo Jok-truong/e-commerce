@@ -1,10 +1,9 @@
-import { useUser } from "@clerk/nextjs";
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { clerkClient, clerkMiddleware } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 export default clerkMiddleware(async (auth, req) => {
-  //get frontend authentication token from request
-  const { isSignedIn } = useUser();
+  const { isSignedIn } = await (await clerkClient()).authenticateRequest(req);
+
   const response = NextResponse.next();
 
   //protect user api
@@ -25,7 +24,7 @@ export default clerkMiddleware(async (auth, req) => {
   // protect api admin routes
   if (req.nextUrl.pathname.startsWith("/api/admin")) {
     //if role exist and role is not admin
-    if ((await auth()).sessionClaims?.metadata?.role !== "admin") {
+    if ((await auth()).sessionClaims?.metadata.role !== "admin") {
       return Response.json(
         {
           message: "Forbidden!",
