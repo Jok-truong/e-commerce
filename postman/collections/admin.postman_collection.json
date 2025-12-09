@@ -1,0 +1,50 @@
+{
+  "info": {
+    "_postman_id": "84e2d7cf-2a4a-4639-b9db-a579ae1866c9",
+    "name": "admin",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "tokens",
+      "item": [
+        {
+          "name": "POST",
+          "id": "dda09bc3-2247-425c-b238-4f832c1636f3",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ADMIN_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"template\": \"admin_token\",\r\n  \"token\": \"{{ADMIN_TOKEN}}\",\r\n  \"user_id\": \"user_36bObDdEwOFXPNWktfVHhM1VbIw\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/admin/tokens",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "admin", "tokens"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "e72430fe-ba35-4747-898f-c0a5a9982627"
+    }
+  ]
+}
