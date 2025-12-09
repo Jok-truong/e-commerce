@@ -26,6 +26,7 @@ export default clerkMiddleware(async (auth, req) => {
   // protect api admin routes
   if (req.nextUrl.pathname.startsWith("/api/admin")) {
     //if role exist and role is not admin
+
     if ((await auth()).sessionClaims?.metadata.role !== "admin") {
       return Response.json(
         {
