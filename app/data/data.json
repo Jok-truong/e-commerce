@@ -1,0 +1,5 @@
+{
+  "template": "admin_token",
+  "token": "{{ADMIN_TOKEN}}",
+  "user_id": "user_36bObDdEwOFXPNWktfVHhM1VbIw"
+}

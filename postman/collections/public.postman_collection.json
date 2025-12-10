@@ -1,0 +1,54 @@
+{
+  "info": {
+    "_postman_id": "6744f497-4ac6-45d6-9841-aa25a9812e8c",
+    "name": "public",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "tokens",
+      "item": [
+        {
+          "name": "New Request",
+          "id": "67e290e6-aa46-4f46-bd7d-7525542b1a1d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"template\": \"admin_token\",\r\n  \"token\": \""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/public/tokens?template=auth_token",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "public", "tokens"],
+              "query": [
+                {
+                  "key": "template",
+                  "value": "auth_token"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "257f5dfb-e219-4e3e-a671-ae56dd8ebf5b"
+    }
+  ]
+}
